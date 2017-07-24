@@ -70,7 +70,7 @@ const setInfo = (pdf, info, verbose, label) => new Promise((resolve, reject) => 
 })
 
 const fillForm = (pdf, xfdf, flatten) => new Promise((resolve, reject) => {
-  const args = [pdf, 'fill_form', xfdf, 'output', '-']
+  const args = [pdf, 'need_appearances fill_form', xfdf, 'output', '-']
   if (flatten) args.push('flatten')
   const { stdout, stderr } = spawn('pdftk', args)
   stderr.on('data', reject)
